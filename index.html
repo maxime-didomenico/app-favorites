@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="app-favorites.css" />
+        <title>Lockscreen</title>
+    </head>
+    <body>
+        <div class="around">
+            <div class="smartphone">
+                <div class="content">
+                    <div class="lockscreen">
+                        <h1 id="current-time"></h1>
+                        <h2>Cliquez sur le bouton pour déverouiller</h2>
+                    </div>
+                </div>
+                <a class="shutdown" href="index.html"></a>
+                <a class="button" href="accueil.html"></a>
+            </div>
+        </div>
+        <script>
+            let time = document.getElementById("current-time");
+
+            setInterval(() =>{
+                let d = new Date();
+                time.innerHTML = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            },1000)
+        </script>
+    </body>
+</html>

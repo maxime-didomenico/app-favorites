@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+.around {
+    height: 800px;
+    margin-top: -8px;
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-bottom: -20px;
+    background-color: #1F2025;
+}
+
+.smartphone {
+    position: relative;
+    width: 360px;
+    height: 640px;
+    margin: auto;
+    border: 16px black solid;
+    border-top-width: 60px;
+    border-bottom-width: 80px;
+    border-radius: 36px;
+}
+  
+.smartphone:before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 10px;
+}
+
+.smartphone .shutdown {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 60px;
+    position: absolute;
+    top: 120px;
+    left: 105%;
+    transform: translate(-50%, -50%);
+    background: black;
+    border-radius: 10px;
+}
+  
+.smartphone .button {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    bottom: -85px;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 50%;
+}
+
+/*/////////////////////////////// LOCKSCREEN ///////////////////////////////*/
+
+.smartphone .content .lockscreen {
+    width: 360px;
+    height: 640px;
+    margin-top: -47px;
+    background-image: url("assets/lockscreen.jpg");
+    background-size: 100%;
+}
+
+.content .lockscreen h1 {
+    color: white;
+    font-size: 70px;
+    padding-top: 20%;
+    padding-left: 25%;
+}
+
+.content .lockscreen h2 {
+    color: white;
+    font-weight: 300;
+    font-size: 12px;
+    padding-top: 110%;
+    padding-left: 20%;
+}
+
+/*/////////////////////////////// HOME ///////////////////////////////*/
+
+.smartphone .content .home {
+    margin-top: -2.3%;
+    width: 360px;
+    height: 640px;
+    background-image: url("assets/home.jpg");
+    background-size: 100%;
+}
+
+.home a img {
+    margin-top: 6%;
+    margin-left: 8%;
+    width: 15%;
+    border-radius: 15px;
+}
+
+.home h1 {
+    padding-top: 2%;
+    padding-left: 46%;
+    color: white;
+    font-size: 12px;
+}
+
+/*/////////////////////////////// YOUTUBE ///////////////////////////////*/
+
+.smartphone .content .youtube {
+    width: 360px;
+    height: 640px;
+    background-color: #1C1B1B;
+    background-size: 100%;
+}
+
+.youtube header {
+    background-color: #202020;
+}
+
+.youtube header img {
+    height: 50px;
+}
+
+.youtube .mid {
+    background-color: #2d2c2c;
+    width: 100%;
+    height:80%;
+}
+
+.youtube footer {
+    background-color: #202020;
+    width:100%;
+    display: flex;
+    height: 50px;
+    padding-top: 6%;
+}
+
+.youtube footer a img {
+    height: 50px;
+}
+
+.yt-home {
+    padding-left: 3%;
+    padding-top: 10%;
+}
+
+/*/////////////////////////////// MUSIQUE ///////////////////////////////*/
+
+.smartphone .content .musique {
+    width: 360px;
+    height: 640px;
+    background-color: black;
+    background-size: 100%;
+    box-sizing: border-box;
+    scrollbar-color: transparent transparent; /* thumb and track color */
+    scrollbar-width: 0px;
+    -ms-overflow-style: none;
+    overflow: hidden;
+}
+
+.smartphone .content .musique h1 {
+    color: white;
+    font-weight: 500;
+}
+
+.smartphone .content .musique h2 {
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}
+  
+  @keyframes snap {
+    96% {
+      scroll-snap-align: center;
+    }
+    97% {
+      scroll-snap-align: none;
+    }
+    99% {
+      scroll-snap-align: none;
+    }
+    100% {
+      scroll-snap-align: center;
+    }
+  }
+  
+  .smartphone .content .musique::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .smartphone .content .musique::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .smartphone .content .musique::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+  }
+  
+  .smartphone .content .musique ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .carousel {
+    position: relative;
+    padding-top: 70%;
+  }
+  
+  .carousel__viewport {
+    position: absolute;
+    top: 10px;
+    right: 85px;
+    bottom: 60px;
+    left: 85px;
+    display: flex;
+    overflow-x: scroll;
+    counter-reset: item;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    border-radius: 20px;
+  }
+  
+  .carousel__slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    counter-increment: item;
+  }
+  
+  .carousel__snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+  }
+  
+  @media (hover: hover) {
+    .carousel__snapper {
+      animation-name: tonext, snap;
+      animation-timing-function: ease;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+    }
+  
+    .carousel__slide:last-child .carousel__snapper {
+      animation-name: tostart, snap;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .carousel__snapper {
+      animation-name: none;
+    }
+  }
+  
+  .carousel:hover .carousel__snapper,
+  .carousel:focus-within .carousel__snapper {
+    animation-name: none;
+  }
+
+.smartphone .content .musique .carousel__snapper img {
+    width: 250px;
+    height: 220px;
+}
+
+.smartphone .content .musique .listen {
+    width: 150px;
+    margin-left: 5%;
+    border-radius: 20px;
+}
+
+.musique footer {
+    background-color: #131313;
+    width:100%;
+    display: flex;
+    height: 57px;
+    padding-top: 0%;
+}
+
+.musique footer a img {
+    height: 57px;
+}
+
+.musique footer a img .fix {
+    height: 57px;
+    width: 80px;
+}
+
+/*------------------------------- explorer ------------------------------*/
+
+.musique .exp {
+    height: 550px;
+}
+
+.musique .exp a img {
+    margin-left: 14%;
+    width: 250px;
+    border-radius: 10px;
+}
+
+.musique .svds a img {
+    width: 120px;
+    margin-left: 10%;
+    border-radius: 20px;
+    margin-top: 3%;
+}
+
+.musique .exp h3 {
+    font-weight: 300;
+    color: white;
+}
+
+.musique .exp footer  {
+    background-color: #131313;
+    width:100%;
+    display: flex;
+    height: 57px;
+    margin-top: 0%;
+}
+
+.musique .exp footer  a img {
+    height: 57px;
+}
+
+.musique .exp footer  a img .fix {
+    height: 57px;
+    width: 80px;
+}
+
+/*------------------------------- radio ------------------------------*/
+
+.musique .rad {
+    height: 550px;
+}
+
+.musique .rad #show {
+    width: 120px;
+    margin-left: 10%;
+    border-radius: 20px;
+    margin-top: 3%;
+}
+
+.musique .rad pre {
+    font-weight: 300;
+    font-size: 14px;
+    color: white;
+}
+
+.musique .rad .jvptup {
+    width: 200px;
+    height: 200px;
+    padding-left: 20%;
+}
+
+.musique .rad .jvptup img {
+    width: 100%;
+    height: 100%;
+}
+
+.musique .rad .other {
+    width: 30%;
+    margin-left: 0%;
+    border-radius: 10px;
+}
+
+.musique .rad footer  {
+    position: fixed;
+    background-color: #131313;
+    width:100%;
+    height: 57px;
+    top: 300px;
+}
+
+.musique .rad footer a img {
+    height: 57px;
+}
+
+.musique .rad footer a img .fix {
+    height: 57px;
+    width: 80px;
+}
+
+/*/////////////////////////////// SNAPCHAT ///////////////////////////////*/
+
+.smartphone .content .snapchat {
+    width: 360px;
+    height: 640px;
+    background-image: url("assets/snap.jpg");
+    background-size: 100%;
+}
+
+.snapchat #header {
+    width: 100%;
+}
+
+.circleBase {
+    border-radius: 50%;
+}
+
+.circle {
+    position: absolute;
+    margin-top: 135%;
+    margin-left: 41%;
+    width: 50px;
+    height: 50px;
+    border: 6px solid white;
+}
+
+.square {
+    position: absolute;
+    height: 30px;
+    width: 80px;
+    background-color: #121212;
+    margin-top: -10%;
+    margin-left: 40%;
+}
+
+.snapchat footer {
+    position: absolute;
+    background-color: black;
+    margin-top: 158%;
+    width:100%;
+    display: flex;
+    height: 50px;
+}
+
+.snapchat footer img {
+    height: 58px;
+}
+
+/*------------------------------- map ------------------------------*/
+
+.smartphone .content .snapchat-map {
+    width: 360px;
+    height: 640px;
+    background-color: black;
+    background-size: 100%;
+}
+
+.snapchat-map #header {
+    width: 100%;
+}
+
+.snapchat-map footer {
+    position: absolute;
+    background-color: black;
+    margin-top: -5%;
+    width:1 00%;
+    display: flex;
+    height: 50px;
+}
+
+.snapchat-map footer img {
+    height: 58px;
+}
+
+/*------------------------------- message ------------------------------*/
+
+.smartphone .content .snapchat-message {
+    width: 360px;
+    height: 640px;
+    background-color: #191818fa;
+    background-size: 100%;
+}
+
+.snapchat-message #header {
+    width: 100%;
+}
+
+.snapchat-message footer {
+    position: absolute;
+    background-color: black;
+    margin-top: 144%;
+    width:1 00%;
+    display: flex;
+    height: 50px;
+}
+
+.snapchat-message footer img {
+    height: 58px;
+}
+
+.snapchat-message .square {
+    position: absolute;
+    height: 30px;
+    width: 80px;
+    background-color: #121212;
+    margin-top: 2%;
+    margin-left: 40%;
+}
+
+.snapchat-message h1 {
+    color: white;
+    font-weight: 300;
+    font-size: 19px;
+    padding-left: 3%;
+}
+
+/*------------------------------- follow ------------------------------*/
+
+.smartphone .content .snapchat-follow {
+    width: 360px;
+    height: 640px;
+    background-color: #191818fa;
+    background-size: 100%;
+}
+
+.snapchat-follow #header {
+    width: 100%;
+}
+
+.snapchat-follow footer {
+    position: absolute;
+    background-color: black;
+    margin-top: 62%;
+    width:1 00%;
+    display: flex;
+    height: 50px;
+}
+
+.snapchat-follow #om {
+    height: 300px;
+    margin-left: 3%;
+    border-radius: 10px;
+}
+
+.snapchat-follow footer img {
+    height: 58px;
+}
+
+.snapchat-follow .square {
+    position: absolute;
+    height: 30px;
+    width: 80px;
+    background-color: #121212;
+    margin-top: 2%;
+    margin-left: 40%;
+}
+
+.snapchat-follow h1 {
+    color: white;
+    font-weight: 400;
+    font-size: 17px;
+    padding-left: 4%;
+}

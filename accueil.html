@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="app-favorites.css" />
+        <title>Home</title>
+    </head>
+    <body>
+        <div class="around">
+            <div class="smartphone">
+                <a class="button" href="#"></a>
+                <div class="content">
+                    <div class="home">
+                        <h1 id="current-time"></h1>
+                        <a href="youtube.html"><img src="https://static.wikia.nocookie.net/ipod/images/e/e7/YouTube_iOS_2019.png/revision/latest?cb=20200610180756"></a>
+                        <a href="musique.html"><img src="https://cdn.jim-nielsen.com/ios/512/apple-music-2020-09-25.png"></a>
+                        <a href="snapchat.html"><img src="assets/snapchat.jpeg"></a>
+                    </div>
+                </div>
+                <a class="shutdown" href="index.html"></a>
+                <a class="button" href="accueil.html"></a>
+            </div>
+        </div>
+        <script>
+            let time = document.getElementById("current-time");
+
+            setInterval(() =>{
+                let d = new Date();
+                time.innerHTML = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            },1000)
+        </script>
+    </body>
+</html>
